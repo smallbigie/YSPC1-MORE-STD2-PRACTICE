@@ -1,0 +1,56 @@
+BEGIN (main() function)
+    print Application Header
+
+    # Get User input 
+    principal = get_principal()
+    annual rate = get_interest_rate()
+    years = get_years()
+
+    # Calculate monthly paymrnt using the loan formula 
+    monthly_payment = calculate_monthly_payment(principal, annual_rate, years)
+
+    # Display the results in a formatted summary
+    display_results(principal, annual_rate, years, monthly_payment)
+
+END
+
+FUNCTION get_principal():
+    LOOP until valid input:
+        PROMPT "Enter the loan principal amount($): "
+        IF input is a valid positive number THEN 
+            RETURN principal
+        ELSE
+            PRINT error message 
+
+FUNCTION get_interest_rate():
+    LOOP until valid innput:
+        PROMPT "Enter the annual interest rate (in %, e.g., 5.0 for 5%, or 6.5 for 6.5%)
+        IF input is a valid positive number THEN    
+            RETURN annual_rate
+        ELSE
+            PRINT error message
+
+FUNCTION get_loan_term():
+    LOOP until valid input:
+        PROMPT "Enter the loan term in years: "
+        IF input is a valid positive integer THEN   
+            RETURN years
+        ELSE
+            PRINT error message
+
+FUNCTION calculator_monthly_payment(prin, anRate, years):
+    monthly_payment = anRate / 12 / 100
+    number_of_payment = years * 12
+    monthly_payment = (principal * monthly_rate) / (1-(1 + monthly_rate) ^ (-number_of_payments))
+    RETURN monthly_payment 
+
+FUNCTION display_results(principal, annual_rate, years, monthly_payment):
+    total_payments = years * 12
+    total_amount = monthly_payment * total_payments
+    PRINT "Loan Payment Summary:"
+    Print "Loan Principal: $" + formatted principals
+    PRINT "Annual Interest: " + formatted annual_rate + "%"
+    PRINT "Loan Term: " + years + " years"
+    PRINT "Monthly Payment: $" + Formatted monthly_payment
+    PRINT "Total Payment: $" + formatted total_amount 
+
